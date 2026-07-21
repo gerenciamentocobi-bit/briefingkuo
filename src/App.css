@@ -1,0 +1,315 @@
+/* ============================================================
+   APP.CSS - Layout, Welcome Screen, Quiz Shell, Navigation
+   ============================================================ */
+
+/* ── App Container ── */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  position: relative;
+}
+
+/* ── Progress Bar Area ── */
+.quiz-progress {
+  width: 100%;
+  max-width: 640px;
+  padding: var(--spacing-sm) 0 var(--spacing-md);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-bg);
+  padding-top: var(--spacing-sm);
+}
+
+.quiz-header-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.quiz-header-logo img {
+  height: auto;
+  max-width: 160px; /* Reduced to be slightly smaller */
+  max-height: 100px;
+  object-fit: contain;
+}
+
+/* ── Quiz Shell (Card) ── */
+.quiz-shell {
+  width: 100%;
+  max-width: 640px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: clamp(var(--spacing-xl), 5vw, var(--spacing-3xl));
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  margin-top: var(--spacing-md);
+}
+
+/* ── Navigation Buttons ── */
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: var(--spacing-2xl);
+  justify-content: flex-end;
+}
+
+.btn-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: none;
+  letter-spacing: 0.01em;
+}
+
+.btn-nav--back {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.btn-nav--back:hover {
+  background: var(--color-surface);
+  border-color: var(--color-border-hover);
+  color: var(--color-text);
+  transform: translateX(-2px);
+}
+
+.btn-nav--next {
+  background: var(--color-bordo);
+  color: white;
+}
+
+.btn-nav--next:hover:not(:disabled) {
+  transform: translateX(2px);
+  background: #6a020b; /* Darker bordo */
+}
+
+.btn-nav--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-nav--submit {
+  padding: 14px 30px;
+  font-size: 0.95rem;
+}
+
+.btn-nav--submit:hover:not(:disabled) {
+  transform: translateY(-2px) translateX(0);
+}
+
+/* ── Kuo Branding ── */
+.quiz-branding {
+  margin-top: var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  opacity: 0.8;
+}
+
+.quiz-branding strong {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--color-bordo);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   WELCOME SCREEN
+═══════════════════════════════════════════════════════════ */
+.welcome {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+}
+
+/* ── Top Logo ── */
+.welcome__top-logo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--spacing-sm); /* Reduced margin */
+  width: 100%;
+}
+
+.welcome__top-img {
+  max-width: 130px; /* 2x smaller than previous 260px */
+  width: 100%;
+  height: auto;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ── Welcome Content ── */
+.welcome__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-lg);
+  max-width: 580px;
+}
+
+.welcome__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.title-highlight {
+  color: var(--color-bordo);
+}
+
+.welcome__subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* ── Stats ── */
+.welcome__stats {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-bordo);
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--color-border);
+}
+
+/* ── Begin Button ── */
+.btn-begin {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 40px;
+  background: var(--color-bordo);
+  border: none;
+  border-radius: var(--radius-full);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.btn-begin:hover {
+  transform: translateY(-2px);
+  background: #6a020b; /* Darker bordo */
+}
+
+.btn-begin:active {
+  transform: translateY(0);
+}
+
+.btn-begin__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  font-size: 1rem;
+  transition: transform var(--transition-normal);
+}
+
+.btn-begin:hover .btn-begin__arrow {
+  transform: translateX(4px);
+}
+
+.welcome__disclaimer {
+  font-size: 0.73rem;
+  color: var(--color-text-muted);
+  max-width: 340px;
+  line-height: 1.5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .welcome__stats {
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .stat-number {
+    font-size: 1.3rem;
+  }
+
+  .btn-begin {
+    padding: 16px 28px;
+    font-size: 0.95rem;
+  }
+
+  .quiz-shell {
+    border-radius: var(--radius-lg);
+  }
+
+  .nav-buttons {
+    flex-direction: column-reverse;
+  }
+
+  .btn-nav {
+    width: 100%;
+    justify-content: center;
+  }
+}
